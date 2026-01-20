@@ -30,6 +30,7 @@ public class Main {
                     + "2. Comer\n"
                     + "3. Jugar\n"
                     + "4. Dormir\n"
+                    + "5. Curar\n"
                     + "-----------\n"
                     + "0. Salir\n";
 
@@ -38,10 +39,10 @@ public class Main {
             System.out.print("Seleccione un opción del menú: ");
             opcion = scanner.nextInt();
             //Muestro mensaje si no es una opcion valida
-            if (opcion < 0 || opcion > 4) {
+            if (opcion < 0 || opcion > 5) {
                 System.out.println(opcion + " no és una ópcion válida");
             }
-        }while (opcion < 0 || opcion > 4);
+        }while (opcion < 0 || opcion > 5);
 
         return opcion;
     }
@@ -65,6 +66,10 @@ public class Main {
             case 4:
                 //Invoco al metodo dormir()
                 dormir();
+                break;
+            case 5:
+                //Invoca al metodo curar()
+                curarTamagotchi();
                 break;
             case 0:
                 System.out.println("Bye");
@@ -194,5 +199,28 @@ public class Main {
         }else {
             System.out.println("\nNo tengo sueño...");
         }
+    }
+
+    //Metodo para la opcion curar del Tamagotchi
+    private static void curarTamagotchi() {
+        System.out.println("\nNo me gustan las medicinas!!");
+
+        saciedad+=2;
+        if (saciedad > 10) {
+            saciedad = 10;
+        }
+
+        energia+=2;
+        if (energia > 10) {
+            energia = 10;
+        }
+
+        //La medicinas no le gustan a Tamagotchi, bajan diversion
+        diversion -= 2;
+        if (diversion < 0) {
+            diversion = 0;
+        }
+
+        mostrarEstado();
     }
 }
