@@ -130,6 +130,12 @@ public class Main {
                 diversion = 0;
             }
 
+            //Comer da sueño
+            energia--;
+            if (energia < 0) {
+                energia = 0;
+            }
+
             System.out.println("\nÑam ñam, que rico");
             //Muestro estado actual del Tamagotchi
             mostrarEstado();
@@ -146,11 +152,13 @@ public class Main {
                 diversion = 10;
             }
 
+            //Jugar da hambre
             saciedad--;
             if (saciedad < 0) {
                 saciedad = 0;
             }
 
+            //Jugar da sueño
             energia--;
             if (energia <0) {
                 energia = 0;
@@ -166,7 +174,7 @@ public class Main {
     //Metodo para la opcion dormir del Tamagotchi
     private static void dormir() {
         if (energia < 10) {
-            energia += 3;
+            energia += 5;
             if (energia > 10) {
                 energia = 10;
             }
@@ -176,7 +184,7 @@ public class Main {
                 saciedad = 0;
             }
 
-            diversion -= 2; //Aburrido estar dormido
+            diversion -= 3; //Aburrido estar dormido
             if (diversion < 0) {
                 diversion = 0;
             }
