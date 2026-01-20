@@ -55,8 +55,8 @@ public class Main {
                 mostrarEstado();
                 break;
             case 2:
-                //Comer
-                System.out.println("opcion 2");
+                //Invoco el metodo alimentarTamagotchi()
+                alimentarTamagotchi();
                 break;
             case 3:
                 //Jugar
@@ -77,7 +77,7 @@ public class Main {
 
     //Metodo para mostrar los graficos
     private static void mostrarEstado() {
-        String estadoTamagotchi = "\n--- ESTADO DEL TAMAGOTCHI ---"
+        String estadoTamagotchi = "\n--- ESTADO DEL TAMAGOTCHI ---\n"
                                 + "Nivel de Saciedad: " + saciedad + "\n"
                                 + "Nivel de Energía: " + energia + "\n"
                                 + "Nivel de Diversión: " + diversion + "\n"
@@ -113,11 +113,9 @@ public class Main {
 
     //Metodo para la opcion comer del Tamagotchi
     private static void alimentarTamagotchi() {
-        //Bug intencionado 1: sumamos 5 (deberia ser 3)
+        //Incremento saciedad
         if (saciedad < 10) {
-            saciedad+=5;
-
-            //Bug intencionado 2: se me 'olvida' llamar a mostrarEstado()
+            saciedad+=3;
 
             //Controlo que no pase del máximo
             if (saciedad > 10) {
@@ -131,9 +129,10 @@ public class Main {
             }
 
             System.out.println("Ñam ñam, que rico");
+            //Muestro estado actual del Tamagotchi
+            mostrarEstado();
         }else {
             System.out.println("No tengo hambre!");
         }
-        break;
     }
 }
