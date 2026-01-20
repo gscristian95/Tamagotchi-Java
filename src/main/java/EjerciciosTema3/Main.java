@@ -6,6 +6,11 @@ public class Main {
     // Declaro el Scanner como static para usarlo en toda la clase
     static Scanner scanner = new Scanner(System.in);
 
+    //Variables de estado Tamagotchi (globales y estaticas)
+    static int saciedad = 6;
+    static int energia = 6;
+    static int diversion = 6;
+
     public static void main(String[] args) {
         //Variables
         int opcion;
@@ -46,8 +51,8 @@ public class Main {
         //Proceso la opcion seleccionada con switch case
         switch (opcion) {
             case 1:
-                //Estado
-                System.out.println("opcion 1");
+                //Invoco al metodo mostrarEstado()
+                mostrarEstado();
                 break;
             case 2:
                 //Comer
@@ -67,6 +72,42 @@ public class Main {
             default:
                 System.out.println(opcion + " no és una ópcion válida");
                 break;
+        }
+    }
+
+    //Metodo para mostrar los graficos
+    private static void mostrarEstado() {
+        String estadoTamagotchi = "\n--- ESTADO DEL TAMAGOTCHI ---"
+                                + "Nivel de Saciedad: " + saciedad + "\n"
+                                + "Nivel de Energía: " + energia + "\n"
+                                + "Nivel de Diversión: " + diversion + "\n"
+                                + "-------------------------------";
+
+        System.out.println(estadoTamagotchi);
+
+        //Logica de sprites
+        if (saciedad == 0 || energia == 0 || diversion == 0) {
+            System.out.println(" (x_x) Game Over");
+            System.out.println(" /| |\\ ");
+            System.out.println("  | |");
+        } else if (diversion <= 4) {
+            System.out.println(" (-,-) Estoy aburrido");
+            System.out.println(" /| |\\ ¡Juega conmigo!");
+            System.out.println("  / \\");
+        } else if (energia <= 4) {
+            System.out.println(" (-_-) Zzz");
+            System.out.println(" /|_|\\ ");
+            System.out.println("  | |");
+        } else if (saciedad <= 4) {
+            System.out.println(" (•︵•) Tengo hambre");
+            System.out.println(" /|x|\\ ");
+            System.out.println("  | |");
+        } else {
+            //Saciedad, energia y diversion > 5
+            System.out.println(" (•‿•)   ¡Estoy feliz!");
+            System.out.println(" /|_|\\ ");
+            System.out.println("  | |");
+
         }
     }
 }
