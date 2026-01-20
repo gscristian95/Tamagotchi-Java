@@ -110,4 +110,30 @@ public class Main {
 
         }
     }
+
+    //Metodo para la opcion comer del Tamagotchi
+    private static void alimentarTamagotchi() {
+        //Bug intencionado 1: sumamos 5 (deberia ser 3)
+        if (saciedad < 10) {
+            saciedad+=5;
+
+            //Bug intencionado 2: se me 'olvida' llamar a mostrarEstado()
+
+            //Controlo que no pase del máximo
+            if (saciedad > 10) {
+                saciedad = 10;
+            }
+
+            //Resto diversion
+            diversion--;
+            if (diversion < 0) {
+                diversion = 0;
+            }
+
+            System.out.println("Ñam ñam, que rico");
+        }else {
+            System.out.println("No tengo hambre!");
+        }
+        break;
+    }
 }
