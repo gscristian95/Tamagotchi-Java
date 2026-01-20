@@ -59,8 +59,8 @@ public class Main {
                 alimentarTamagotchi();
                 break;
             case 3:
-                //Jugar
-                System.out.println("opcion 3");
+                //Invoco al metodo jugar()
+                jugar();
                 break;
             case 4:
                 //Dormir
@@ -133,6 +133,31 @@ public class Main {
             mostrarEstado();
         }else {
             System.out.println("No tengo hambre!");
+        }
+    }
+
+    //Metodo para la opcion jugar del Tamagotchi
+    private static void jugar() {
+        if (diversion < 10) {
+            diversion += 3;
+            if (diversion > 10) {
+                diversion = 10;
+            }
+
+            saciedad--;
+            if (saciedad < 0) {
+                saciedad = 0;
+            }
+
+            energia--;
+            if (energia <0) {
+                energia = 0;
+            }
+
+            System.out.println("A jugar!");
+            mostrarEstado();
+        }else {
+            System.out.println("Ahora no me apetece jugar.");
         }
     }
 }
