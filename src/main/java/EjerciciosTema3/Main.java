@@ -63,8 +63,8 @@ public class Main {
                 jugar();
                 break;
             case 4:
-                //Dormir
-                System.out.println("opcion 4");
+                //Invoco al metodo dormir()
+                dormir();
                 break;
             case 0:
                 System.out.println("Bye");
@@ -90,6 +90,8 @@ public class Main {
             System.out.println(" (x_x) Game Over");
             System.out.println(" /| |\\ ");
             System.out.println("  | |");
+            //Game over finaliza el programa
+            System.exit(0);
         } else if (diversion <= 4) {
             System.out.println(" (-,-) Estoy aburrido");
             System.out.println(" /| |\\ ¡Juega conmigo!");
@@ -128,11 +130,11 @@ public class Main {
                 diversion = 0;
             }
 
-            System.out.println("Ñam ñam, que rico");
+            System.out.println("\nÑam ñam, que rico");
             //Muestro estado actual del Tamagotchi
             mostrarEstado();
         }else {
-            System.out.println("No tengo hambre!");
+            System.out.println("\nNo tengo hambre!");
         }
     }
 
@@ -154,10 +156,35 @@ public class Main {
                 energia = 0;
             }
 
-            System.out.println("A jugar!");
+            System.out.println("\nA jugar!");
             mostrarEstado();
         }else {
-            System.out.println("Ahora no me apetece jugar.");
+            System.out.println("\nAhora no me apetece jugar.");
+        }
+    }
+
+    //Metodo para la opcion dormir del Tamagotchi
+    private static void dormir() {
+        if (energia < 10) {
+            energia += 3;
+            if (energia > 10) {
+                energia = 10;
+            }
+
+            saciedad -= 3; //Baja mucho el hambre al dormir
+            if (saciedad < 0) {
+                saciedad = 0;
+            }
+
+            diversion -= 2; //Aburrido estar dormido
+            if (diversion < 0) {
+                diversion = 0;
+            }
+
+            System.out.println("\nZzz....");
+            mostrarEstado();
+        }else {
+            System.out.println("\nNo tengo sueño...");
         }
     }
 }
